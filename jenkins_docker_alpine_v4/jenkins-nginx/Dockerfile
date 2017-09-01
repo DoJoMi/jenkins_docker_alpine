@@ -3,7 +3,11 @@ FROM nginx:alpine
 MAINTAINER dojomi
 
 ENV DOCKERIZE_VERSION v0.5.0
-# variable which is handed over to the nginx-configuration file
+# variable which is handed over to the conf/nginx.conf.tmpl
+ENV WORKER_CONNECTIONS="1024"
+ENV WORKER_PROCESSES="2"
+
+# variable which is handed over to the conf/default.conf.tmpl
 ENV CERT_NAME="jenkins.local.io"
 
 ARG CERTIFICATE_DIR=/etc/nginx/ssl
